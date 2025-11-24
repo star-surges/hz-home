@@ -1,5 +1,8 @@
 <html>
   <head>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+</style>
         <style>
             :root{
               --base-color: #fff;
@@ -7,6 +10,7 @@
               --accent-color: #d2691e;
               --gray: #aaa;
               --last-color: #8b008b;
+              --div-background: #55555550;
             }
             body{
                 color: var(--base-color);
@@ -25,7 +29,7 @@
               width: 75%;
               border-left: 0px solid var(--last-color);
               margin: 0 auto;
-              background-color: #55555550;
+              background-color: var(--div-background);
               border-radius: 10px;
               transition: 0.5s;
               color: #00000000;
@@ -47,7 +51,7 @@
               width: 75%;
               border-left: 5px solid var(--accent-color);
               margin: 0 auto;
-              background-color: #55555550;
+              background-color: var(--div-background);
             }
             .credit{
               font-size: 0.75em;
@@ -74,7 +78,7 @@
               padding: 1em;
               width: 75%;
               margin: 0 auto;
-              background-color: #55555550;
+              background-color: var(--div-background);
               border-radius: 10px;
               text-align: center;
               font-family: serif;
@@ -91,7 +95,7 @@
               width: 75%;
               border-left: 0px solid var(--accent-color);
               margin: 0 auto;
-              background-color: #55555550;
+              background-color: var(--div-background);
               border-radius: 10px;
               transition: 0.5s;
             }
@@ -124,7 +128,120 @@
             }
             ::selection{
               background-color: var(--accent-color);
-              color: var(--background-color)
+              color: var(--background-color);
+            }
+            .copyright{
+              text-align: center;
+              text-weight: 500
+            }
+            .contain{
+              backdrop-filter: blur(10px);
+              padding: 1em;
+              width: 75%;
+              border-left: 0px solid var(--accent-color);
+              margin: 0 auto;
+              background-color: var(--div-background);
+              border-radius: 10px;
+              transition: 0.5s;
+                color: #00000000;
+            }
+            .contain:hover{
+              color: var(--base-color);
+              backdrop-filter: blur(10px);
+              padding: 1em;
+              width: 75%;
+              margin: 0 auto;
+              background-color: var(--div-background);
+              border-radius: 10px;
+              transition: 0.5s;
+              color: fff;
+            }
+
+            .story-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                backdrop-filter: blur(5px);
+                z-index: 1000;
+                overflow-y: auto;
+                animation: fadeIn 0.3s ease;
+            }
+            
+            .story-overlay.active {
+                display: block;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            /* モーダルコンテナ */
+            .story-container {
+                max-width: 800px;
+                margin: 40px auto;
+                padding: 40px;
+                backdrop-filter: blur(20px);
+                position: relative;
+                border-left: 5px solid var(--accent-color);
+            }
+            .story-container::before{
+              
+            }
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                background: rgba(255, 255, 255, 0.1);
+                border: none;
+                border-radius: 50%;
+                color: var(--base-color);
+                font-size: 1.5rem;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            
+            .close-btn:hover {
+                background: var(--accent-color);
+                transform: rotate(90deg);
+            }
+            .story-content {
+                margin-top: 40px;
+            }
+            .story-content h2 {
+                font-size: 2rem;
+                margin-bottom: 10px;
+                color: var(--accent-color);
+            }
+            .story-subtitle {
+                font-size: 0.9rem;
+                color: var(--gray);
+                margin-bottom: 30px;
+                font-style: italic;
+            }
+            .story-text {
+                font-family: serif;
+                line-height: 2;
+                font-size: 1rem;
+            }
+            .story-text p {
+                margin-bottom: 1.5em;
+                text-indent: 1em;
+            }
+            .story-text p.note {
+                text-indent: 0;
+                text-align: center;
+                color: var(--gray);
+                font-size: 0.85rem;
+                margin: 40px 0;
+            }
+            .clickable {
+                cursor: pointer;
             }
         </style>
         <title>hz。ホームページ</title>
@@ -164,7 +281,7 @@
     </div>
     <br>
     <br>
-    <div class="art-card">
+    <div class="art-card clickable" onclick="toggleStory('baretokimi')" >
       <div class="title">
         No:512/487
       </div>
@@ -178,6 +295,40 @@
       あなたは、好いている人と、世界、どちらを救いますか？
       <br>
       彼女は──
+    </div>
+    <div id="baretokimi" class="story-overlay" onclick="closeStory(event, 'baretokimi')">
+        <div class="story-container" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeStory(event, 'baretokimi')">✕</button>
+            <div class="story-content">
+                <h2>バレトキミ</h2>
+                <p class="story-subtitle">─傘を差さなくなるまでのものがたり─</p>
+                <div class="story-text">
+                    <p>
+                    アラームを、止める。
+                      <br>
+                    　  学校の、支度をする。
+                      <br>
+                    　  それは、きっと、贅沢で。
+                    </p>
+                    <p>
+                    ある日、夢から醒めて、現実に起きた。その夢がいつ見たものかは覚えていない。数秒前か、数週間前か、或いは数世紀前。ただ、雨が、雨を避けることを贅沢だと思うようになったのは、あの日から。
+                    </p>
+                    <p>
+                    逃げ水が眼の少し先で揺蕩っている。つい最近の夏は日差しがキツくて堪らない。夏の日のせいで火照った体の為に、橋の影を目指して歩く。雨が降ったと思ったが、気の所為だったらしい。
+                    </p>
+                    <p>
+                      陽で溶けて地面にへばりついたのかと思うように重い足を進める。目的地を横切る道に二つほど並んでいる自販機に硬貨を入れる。ボタンを押して取り出し口から覗いたのは、私が選んだサイダーではなく、六百ミリリットルの麦茶だった。
+                    </p>
+                    <p>
+                      業者の入れ間違いなのか、故障なのかはわからないけれど、自分自身の不運さを少しだけ憎く思った。と同時に自分の口から小さくため息が漏れる。外側に水滴がついたそのペットボトルを持ちながら橋の下の影に隠れる。
+                    </p>
+                    <p>
+                      雨は降らないんだろうか。と思っていたとき、学校のチャイムが鳴る。私も行けるはずだった高校、学校。私の過去を睨みつけても、過去は表情一つ変えずに私を見ている。
+                    </p>
+                    <p class="note">※ 全文約15,000字</p>
+                </div>
+            </div>
+        </div>
     </div>
     <br>
     <br>
@@ -228,7 +379,7 @@
     </div>
     <br>
     <br>
-    <div class="art-card">
+    <div class="art-card" onclick="toggleStory('baretokimi')">
       <div class="title">
         No:???/???
       </div>
@@ -296,6 +447,36 @@
         hz。
       </div>
     </div>
+    <br>
+    <br>
+    <div class="copyright">
+      ©2025 hz。
+    <div>
+      <script>
+        function toggleStory(id) {
+            const overlay = document.getElementById(id);
+            if (overlay) {
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function closeStory(event, id) {
+            const overlay = document.getElementById(id);
+            if (overlay) {
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            event.stopPropagation();
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeOverlay = document.querySelector('.story-overlay.active');
+                if (activeOverlay) {
+                    activeOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
     </script>
   </body>
 </html>
