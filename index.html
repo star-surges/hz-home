@@ -1,16 +1,29 @@
 <html>
   <head>
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
-</style>
         <style>
-            :root{
+.on-font {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+              :root{
               --base-color: #fff;
               --background-color: #000;
               --accent-color: #d2691e;
               --gray: #aaa;
               --last-color: #8b008b;
               --div-background: #55555550;
+            }
+            a{
+              text-decoration: none;
+              color: var(--gray);
+              transition: 0.5s;
+            }
+            a:hover{
+              text-decoration: none;
+              color: var(--accent-color);
+              transition: 0.5s;
             }
             body{
                 color: var(--base-color);
@@ -21,7 +34,9 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 margin: 5em;
-                font-weight: 100;
+                font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 300;
+  font-style: normal;
             }
             .last-card{
               backdrop-filter: blur(10px);
@@ -68,6 +83,7 @@
               margin: 0em 0em 3em 0em;
               font-size: 1.5em;
               font-weight: 500;
+              font-family: mono;
             }
             hr{
               border-top: 0.5px solid var(--base-color);
@@ -115,6 +131,7 @@
             h1{
               text-align: center;
               font-weight: 500;
+
             }
             .art-card:hover{
               backdrop-filter: blur(10px);
@@ -187,6 +204,7 @@
                 backdrop-filter: blur(20px);
                 position: relative;
                 border-left: 5px solid var(--accent-color);
+                background-color: var(--div-background)
             }
             .story-container::before{
               
@@ -244,14 +262,15 @@
                 cursor: pointer;
             }
         </style>
+        </style>
         <title>hz。ホームページ</title>
   </head>
-  <body>
+  <body class="on-font">
     <h1 class="header">
       hz。公式サイト『波打ち際』
     </h1>
     <div class="subtitle">
-      hz。officialSite
+      hz。OfficialSite
     </div>
     <div class="card">
       周波数（しゅうはすう、英：frequency）とは、工学、特に電気工学・電波工学や音響工学などにおいて、波動や振動が、単位時間当たりに繰り返される回数のことである。
@@ -446,6 +465,20 @@
       <div class="credit">
         hz。
       </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <h1>
+      クレジット
+    </h1>
+    <div class="message">
+      <h2>フォント</h2>
+      <a href="https://fonts.google.com/specimen/Zen+Maru+Gothic?preview.layout=grid&query=zen&lang=ja_Jpan">Zen maru Gothic</a>
+      <br>
+      serif
+      <br>
+      Mono
     </div>
     <br>
     <br>
