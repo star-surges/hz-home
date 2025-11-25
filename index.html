@@ -35,19 +35,19 @@
                 background-repeat: no-repeat;
                 margin: 5em;
                 font-family: "Zen Maru Gothic", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+                font-weight: 300;
+                font-style: normal;
             }
             .last-card{
-              backdrop-filter: blur(10px);
-              padding: 1em;
-              width: 75%;
-              border-left: 0px solid var(--last-color);
-              margin: 0 auto;
-              background-color: var(--div-background);
-              border-radius: 10px;
-              transition: 0.5s;
-              color: #00000000;
+                backdrop-filter: blur(10px);
+                padding: 1em;
+                width: 75%;
+                border-left: 0px solid var(--last-color);
+                margin: 0 auto;
+                background-color: var(--div-background);
+                border-radius: 10px;
+                transition: 0.5s;
+                color: #00000000;
             }
             .last-card:hover{
               backdrop-filter: blur(10px);
@@ -114,6 +114,7 @@
               background-color: var(--div-background);
               border-radius: 10px;
               transition: 0.5s;
+              overflow: hidden;
             }
             .title{
               color: var(--accent-color);
@@ -131,7 +132,10 @@
             h1{
               text-align: center;
               font-weight: 500;
-
+            }
+            h1.none::first-letter{
+              color: var(--accent-color);
+              font-size: 150%;
             }
             .art-card:hover{
               backdrop-filter: blur(10px);
@@ -173,7 +177,6 @@
               transition: 0.5s;
               color: fff;
             }
-
             .story-overlay {
                 display: none;
                 position: fixed;
@@ -186,17 +189,13 @@
                 overflow-y: auto;
                 animation: fadeIn 0.3s ease;
             }
-            
             .story-overlay.active {
                 display: block;
             }
-            
             @keyframes fadeIn {
                 from { opacity: 0; }
                 to { opacity: 1; }
             }
-            
-            /* モーダルコンテナ */
             .story-container {
                 max-width: 800px;
                 margin: 40px auto;
@@ -205,9 +204,6 @@
                 position: relative;
                 border-left: 5px solid var(--accent-color);
                 background-color: var(--div-background)
-            }
-            .story-container::before{
-              
             }
             .close-btn {
                 position: absolute;
@@ -223,7 +219,6 @@
                 cursor: pointer;
                 transition: all 0.3s;
             }
-            
             .close-btn:hover {
                 background: var(--accent-color);
                 transform: rotate(180deg);
@@ -261,16 +256,76 @@
             .clickable {
                 cursor: pointer;
             }
-        </style>
+            .infomation{
+              color: #000000
+            }
+            .arrow-container {
+              position: absolute;
+              right: 2em;
+              top: 50%;
+              transform: translateY(-50%);
+              display: flex;
+              gap: 0.3em;
+              opacity: 0;
+              transition: 0.5s;
+            }
+            .arrow-container span {
+                color: var(--accent-color);
+                font-size: 1.5em;
+                animation: arrowWave 1.5s ease-in-out infinite;
+            }
+            .arrow-container span:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+            .arrow-container span:nth-child(3) {
+                animation-delay: 0.2s;
+            }
+            .art-card:hover .arrow-container {
+                opacity: 1;
+            }
+            @keyframes arrowWave {
+                0%, 100% {
+                    transform: translateX(0);
+                    opacity: 0.3;
+                }
+                50% {
+                    transform: translateX(5px);
+                    opacity: 1;
+                }
+            }
         </style>
         <title>hz。ホームページ</title>
   </head>
   <body class="on-font">
     <h1 class="header">
-      hz。公式サイト『波打ち際』
+      hz。公式サイト『<b   class="untitled clickable" onclick="toggleStory('only-here')">波打ち際</b>』
     </h1>
     <div class="subtitle">
       hz。OfficialSite
+    </div>
+    <div id="only-here" class="story-overlay" onclick="closeStory(event, 'only-here')">
+        <div class="story-container" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeStory(event, 'only-here')">✕</button>
+            <div class="story-content">
+                <h2>UNtitled</h2>
+                <p class="story-subtitle">─ここにだけ存在する噺。─</p>
+                <div class="story-text">
+                    <p>とても、とても昔の話。「統治」という神様が居た。正確には、「統治」という概念そのものを持ち併せている、“生命体の一つ上の存在”。</p>
+                    <p>「統治」は、桁がどれだけ増えようと、その数字が無意味に見えるほどの年月を、一人過ごしていた。それから少しして、「統治」は宇宙を創った。</p>
+                    <p>なぜ、創ったのか。それは誰にもわからない。淋しかったのか、もしくはそれ以外の理由か。</p>
+                    <p>それから、更に少しして、人間という知的生命体が生まれ、“神“という存在を作り出した。偶然、もしくは必然。その“神“という名前の存在が出てくる話は、「統治」自身の話に似通っていた。</p>
+                    <p>「統治」に似通った神の名は、「天御創命」。</p>
+                    <p>そして、天御創命の伝説には、こういう話があった。天御創命は、自身のクローンであり、子である、「土照神」、「天濡神」を創造した。 </p>
+                    <p>そして、「統治」はそれを真似て、「秩序」と、「混沌」という子を創った。</p>
+                    <p>また、別の場所でも同じような話があった。それが存在したのは、Crytwe、クライツーという星の生命体であった。</p>
+                    <p>「Thigal Dela」。これは、クライツーの生命体の言語で、「理解不能」を示す言葉だった。</p>
+                    <p>いつしか、「統治」は地球でも「シガルデラ」という名前で呼ばれていることに気がついた。</p>
+                    <p>「統治」は、とある事に気づいた。自身が創造した存在は、「統治」自身とつながっている存在だということだ。</p>
+                    <p>「連続性のある存在」と、「　　　」の二つを意味する、「Halgio」を、自身とつながっている生命体の総称とした。</p>
+                    <p>それが、天御創命のモデルであり、シガルデラのモデルであり、「秩序」、「混沌」の親である、「統治」の物語である。</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="card">
       周波数（しゅうはすう、英：frequency）とは、工学、特に電気工学・電波工学や音響工学などにおいて、波動や振動が、単位時間当たりに繰り返される回数のことである。
@@ -282,7 +337,7 @@
     <hr>
     <br>
     <br>
-    <h1>
+    <h1 class="none">
       周波数シリーズ作品群
     </h1>
      <div class="message">
@@ -301,6 +356,7 @@
     <br>
     <br>
     <div class="art-card clickable" onclick="toggleStory('baretokimi')" >
+      <div class="information">クリックで見る</div>
       <div class="title">
         No:512/487
       </div>
@@ -314,6 +370,11 @@
       あなたは、好いている人と、世界、どちらを救いますか？
       <br>
       彼女は──
+        <div class="arrow-container">
+          <span>➤</span>
+          <span>➤</span>
+          <span>➤</span>
+      </div>
     </div>
     <div id="baretokimi" class="story-overlay" onclick="closeStory(event, 'baretokimi')">
         <div class="story-container" onclick="event.stopPropagation()">
@@ -351,7 +412,7 @@
     </div>
     <br>
     <br>
-    <div class="art-card">
+    <div class="art-card clickable" onclick="toggleStory('from-the-sky')">
       <div class="title">
         No:???/???
       </div>
@@ -365,6 +426,45 @@
       あなたは、自分のしたいことのために、自分を捨てられますか？
       <br>
       彼は──
+      <div class="arrow-container">
+          <span>➤</span>
+          <span>➤</span>
+          <span>➤</span>
+      </div>
+    </div>
+    <div id="from-the-sky" class="story-overlay" onclick="closeStory(event, 'from-the-sky')">
+        <div class="story-container" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeStory(event, 'from-the-sky')">✕</button>
+            <div class="story-content">
+                <h2>宇宙から</h2>
+                <p class="story-subtitle">─“どこか”によく似た世界の話。─</p>
+                <div class="story-text">
+                    <p>
+                    アラームを、止める。
+                      <br>
+                    　  学校の、支度をする。
+                      <br>
+                    　  それは、きっと、贅沢で。
+                    </p>
+                    <p>
+                    ある日、夢から醒めて、現実に起きた。その夢がいつ見たものかは覚えていない。数秒前か、数週間前か、或いは数世紀前。ただ、雨が、雨を避けることを贅沢だと思うようになったのは、あの日から。
+                    </p>
+                    <p>
+                    逃げ水が眼の少し先で揺蕩っている。つい最近の夏は日差しがキツくて堪らない。夏の日のせいで火照った体の為に、橋の影を目指して歩く。雨が降ったと思ったが、気の所為だったらしい。
+                    </p>
+                    <p>
+                      陽で溶けて地面にへばりついたのかと思うように重い足を進める。目的地を横切る道に二つほど並んでいる自販機に硬貨を入れる。ボタンを押して取り出し口から覗いたのは、私が選んだサイダーではなく、六百ミリリットルの麦茶だった。
+                    </p>
+                    <p>
+                      業者の入れ間違いなのか、故障なのかはわからないけれど、自分自身の不運さを少しだけ憎く思った。と同時に自分の口から小さくため息が漏れる。外側に水滴がついたそのペットボトルを持ちながら橋の下の影に隠れる。
+                    </p>
+                    <p>
+                      雨は降らないんだろうか。と思っていたとき、学校のチャイムが鳴る。私も行けるはずだった高校、学校。私の過去を睨みつけても、過去は表情一つ変えずに私を見ている。
+                    </p>
+                    <p class="note">※ 全文約15,000字</p>
+                </div>
+            </div>
+        </div>
     </div>
     <br>
     <br>
@@ -398,7 +498,7 @@
     </div>
     <br>
     <br>
-    <div class="art-card" onclick="toggleStory('baretokimi')">
+    <div class="art-card"">
       <div class="title">
         No:???/???
       </div>
@@ -444,10 +544,10 @@
     <br>
     <hr>
     <br>
-    <h1>
+    <h1 class="none">
       コメント
     </h1>
-    <div class="message clickable" onclick="toggleStory('only-here')" >
+    <div class="message" >
       どうも。hz。です。数百回コーディングをして、初めて公開するのがこのサイトであることを、“忘れずに”生きていきたいと思います。
       <br>
       <br>
@@ -466,34 +566,10 @@
         hz。
       </div>
     </div>
-    <div id="only-here" class="story-overlay" onclick="closeStory(event, 'only-here')">
-        <div class="story-container" onclick="event.stopPropagation()">
-            <button class="close-btn" onclick="closeStory(event, 'only-here')">✕</button>
-            <div class="story-content">
-                <h2>UNtitled</h2>
-                <p class="story-subtitle">─ここにだけ存在する噺。─</p>
-                <div class="story-text">
-                    <p>とても、とても昔の話。「統治」という神様が居た。正確には、「統治」という概念そのものを持ち併せている、“生命体の一つ上の存在”。</p>
-                    <p>「統治」は、桁がどれだけ増えようと、その数字が無意味に見えるほどの年月を、一人過ごしていた。それから少しして、「統治」は宇宙を創った。</p>
-                    <p>なぜ、創ったのか。それは誰にもわからない。淋しかったのか、もしくはそれ以外の理由か。</p>
-                    <p>それから、更に少しして、人間という知的生命体が生まれ、“神“という存在を作り出した。偶然、もしくは必然。その“神“という名前の存在が出てくる話は、「統治」自身の話に似通っていた。</p>
-                    <p>「統治」に似通った神の名は、「天御創命」。</p>
-                    <p>そして、天御創命の伝説には、こういう話があった。天御創命は、自身のクローンであり、子である、「土照神」、「天濡神」を創造した。 </p>
-                    <p>そして、「統治」はそれを真似て、「秩序」と、「混沌」という子を創った。</p>
-                    <p>また、別の場所でも同じような話があった。それが存在したのは、Crytwe、クライツーという星の生命体であった。</p>
-                    <p>「Thigal Dela」。これは、クライツーの生命体の言語で、「理解不能」を示す言葉だった。</p>
-                    <p>いつしか、「統治」は地球でも「シガルデラ」という名前で呼ばれていることに気がついた。</p>
-                    <p>「統治」は、とある事に気づいた。自身が創造した存在は、「統治」自身とつながっている存在だということだ。</p>
-                    <p>「連続性のある存在」と、「　　　」の二つを意味する、「Halgio」を、自身とつながっている生命体の総称とした。</p>
-                    <p>それが、天御創命のモデルであり、シガルデラのモデルであり、「秩序」、「混沌」の親である、「統治」の物語である。</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <br>
     <hr>
     <br>
-    <h1>
+    <h1 class="none">
       クレジット
     </h1>
     <div class="message">
@@ -537,3 +613,8 @@
     </script>
   </body>
 </html>
+
+
+
+
+
