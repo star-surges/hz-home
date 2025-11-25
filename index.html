@@ -18,12 +18,12 @@
             a{
               text-decoration: none;
               color: var(--gray);
-              transition: 0.5s;
+              transition: 0.2s;
             }
             a:hover{
               text-decoration: none;
               color: var(--accent-color);
-              transition: 0.5s;
+              transition: 0.2s;
             }
             body{
                 color: var(--base-color);
@@ -226,7 +226,7 @@
             
             .close-btn:hover {
                 background: var(--accent-color);
-                transform: rotate(90deg);
+                transform: rotate(180deg);
             }
             .story-content {
                 margin-top: 40px;
@@ -447,7 +447,7 @@
     <h1>
       コメント
     </h1>
-    <div class="message">
+    <div class="message clickable" onclick="toggleStory('only-here')" >
       どうも。hz。です。数百回コーディングをして、初めて公開するのがこのサイトであることを、“忘れずに”生きていきたいと思います。
       <br>
       <br>
@@ -465,6 +465,30 @@
       <div class="credit">
         hz。
       </div>
+    </div>
+    <div id="only-here" class="story-overlay" onclick="closeStory(event, 'only-here')">
+        <div class="story-container" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeStory(event, 'only-here')">✕</button>
+            <div class="story-content">
+                <h2>UNtitled</h2>
+                <p class="story-subtitle">─ここにだけ存在する噺。─</p>
+                <div class="story-text">
+                    <p>とても、とても昔の話。「統治」という神様が居た。正確には、「統治」という概念そのものを持ち併せている、“生命体の一つ上の存在”。</p>
+                    <p>「統治」は、桁がどれだけ増えようと、その数字が無意味に見えるほどの年月を、一人過ごしていた。それから少しして、「統治」は宇宙を創った。</p>
+                    <p>なぜ、創ったのか。それは誰にもわからない。淋しかったのか、もしくはそれ以外の理由か。</p>
+                    <p>それから、更に少しして、人間という知的生命体が生まれ、“神“という存在を作り出した。偶然、もしくは必然。その“神“という名前の存在が出てくる話は、「統治」自身の話に似通っていた。</p>
+                    <p>「統治」に似通った神の名は、「天御創命」。</p>
+                    <p>そして、天御創命の伝説には、こういう話があった。天御創命は、自身のクローンであり、子である、「土照神」、「天濡神」を創造した。 </p>
+                    <p>そして、「統治」はそれを真似て、「秩序」と、「混沌」という子を創った。</p>
+                    <p>また、別の場所でも同じような話があった。それが存在したのは、Crytwe、クライツーという星の生命体であった。</p>
+                    <p>「Thigal Dela」。これは、クライツーの生命体の言語で、「理解不能」を示す言葉だった。</p>
+                    <p>いつしか、「統治」は地球でも「シガルデラ」という名前で呼ばれていることに気がついた。</p>
+                    <p>「統治」は、とある事に気づいた。自身が創造した存在は、「統治」自身とつながっている存在だということだ。</p>
+                    <p>「連続性のある存在」と、「　　　」の二つを意味する、「Halgio」を、自身とつながっている生命体の総称とした。</p>
+                    <p>それが、天御創命のモデルであり、シガルデラのモデルであり、「秩序」、「混沌」の親である、「統治」の物語である。</p>
+                </div>
+            </div>
+        </div>
     </div>
     <br>
     <hr>
